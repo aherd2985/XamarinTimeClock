@@ -44,12 +44,40 @@ namespace TimeClock.Views
     }
     void OnInvImgBtnClicked(object sender, EventArgs e)
     {
-      Location location = new Location(47.645160, -122.1306032);
+
+      try
+      {
+        Location location = Geolocation.GetLastKnownLocationAsync().Result;
+
+        if (location != null)
+        {
+          Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+        }
+      }
+      catch (FeatureNotSupportedException fnsEx)
+      {
+        // Handle not supported on device exception
+      }
+      catch (FeatureNotEnabledException fneEx)
+      {
+        // Handle not enabled on device exception
+      }
+      catch (PermissionException pEx)
+      {
+        // Handle permission exception
+      }
+      catch (Exception ex)
+      {
+        // Unable to get location
+      }
+
+
+      Location msLocation = new Location(47.645160, -122.1306032);
       MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
 
       try
       {
-        Map.OpenAsync(location, options);
+        Map.OpenAsync(msLocation, options);
       }
       catch (Exception ex)
       {
