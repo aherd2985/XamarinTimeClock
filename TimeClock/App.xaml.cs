@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using TimeClock.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -12,7 +13,7 @@ namespace TimeClock
         {
             InitializeComponent();
 
-            var nav = new NavigationPage(new TimeClockListPage());
+            var nav = new NavigationPage(new LandingPageCS());
             nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGreen"];
             nav.BarTextColor = Color.White;
 
