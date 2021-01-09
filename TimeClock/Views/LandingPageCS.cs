@@ -30,12 +30,14 @@ namespace TimeClock.Views
       };
       imageScanBtn.Clicked += OnInvImgBtnClicked;
 
+      string footerText = "© " + DateTime.Now.Year.ToString() + " Techno Herder";
+
       Content = new StackLayout
       {
         Children = {
           codeButton,
           imageScanBtn,
-          new Label { Text = "Techno Herder", TextColor = Color.LightGreen, Padding = new Thickness( 25, 0, 0, 20 ) }
+          new Label { Text = footerText, TextColor = Color.FromHex("#97bdfc"), Padding = new Thickness( 25, 0, 0, 20 ) }
         }
       };
     }

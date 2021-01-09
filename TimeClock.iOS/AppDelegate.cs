@@ -14,6 +14,7 @@ namespace TimeClock
 			UISwitch.Appearance.OnTintColor = UIColor.FromRGB(0x91, 0xCA, 0x47);
 
 			Forms.Init();
+			Xamarin.FormsMaps.Init();
 			LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
 		}
