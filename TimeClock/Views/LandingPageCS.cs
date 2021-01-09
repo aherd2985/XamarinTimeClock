@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -43,10 +44,17 @@ namespace TimeClock.Views
     }
     void OnInvImgBtnClicked(object sender, EventArgs e)
     {
-      Navigation.PushAsync(new TimeClockItemPageCS
+      Location location = new Location(47.645160, -122.1306032);
+      MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
+
+      try
       {
-        BindingContext = new TimeClockItem()
-      });
+        Map.OpenAsync(location, options);
+      }
+      catch (Exception ex)
+      {
+        // No map application available to open
+      }
     }
     void OnCodeImageButtonClicked(object sender, EventArgs e)
     {
