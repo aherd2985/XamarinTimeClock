@@ -30,12 +30,13 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-CryptoNotes/[Bb]in/
-CryptoNotes/[Oo]bj/
-CryptoNotes.Android/[Bb]in/
-CryptoNotes.Android/[Oo]bj/
-CryptoNotes.iOS/[Bb]in/
-CryptoNotes.iOS/[Oo]bj/
+TimeClock/[Bb]in/
+TimeClock/[Oo]bj/
+TimeClock.Android/[Bb]in/
+TimeClock.Android/[Oo]bj/
+TimeClock.iOS/[Bb]in/
+TimeClock.iOS/[Oo]bj/
+TimeClock/Models/SecretKey.cs
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
