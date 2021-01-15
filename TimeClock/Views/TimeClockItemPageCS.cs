@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace TimeClock
 {
@@ -7,9 +8,6 @@ namespace TimeClock
         public TimeClockItemPageCS()
         {
             Title = "TimeClock Item";
-
-            var nameEntry = new Entry();
-            nameEntry.SetBinding(Entry.TextProperty, "Name");
 
             var notesEntry = new Entry();
             notesEntry.SetBinding(Entry.TextProperty, "Notes");
@@ -21,6 +19,7 @@ namespace TimeClock
             saveButton.Clicked += async (sender, e) =>
             {
                 var timeClock = (TimeClockItem)BindingContext;
+                timeClock.TimePunch = DateTime.Now;
                 await App.Database.SaveItemAsync(timeClock);
                 await Navigation.PopAsync();
             };
@@ -45,8 +44,6 @@ namespace TimeClock
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 Children =
                 {
-                    new Label { Text = "Name" },
-                    nameEntry,
                     new Label { Text = "Notes" },
                     notesEntry,
                     new Label { Text = "Done" },

@@ -4,10 +4,13 @@
              x:Class="TimeClock.Views.LandingPage" Title="Home">
     <ContentPage.Content>
         <StackLayout>
-            <ImageButton Source="code.png"
+            <ImageButton Source="timeClock.png"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" />
-            <ImageButton Source="ScanBtn.png"
+            <ImageButton Source="phoneDir.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+            <ImageButton Source="wrench.png"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" />
             <Label Text=""

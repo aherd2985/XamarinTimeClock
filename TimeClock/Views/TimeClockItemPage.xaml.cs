@@ -13,6 +13,7 @@ namespace TimeClock
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var timeClock = (TimeClockItem)BindingContext;
+            timeClock.TimePunch = DateTime.Now;
             await App.Database.SaveItemAsync(timeClock);
             await Navigation.PopAsync();
         }

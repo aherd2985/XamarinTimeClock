@@ -126,6 +126,9 @@
     <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\timeClock.png" />
+    <BundleResource Include="Resources\phoneDir.png" />
+    <BundleResource Include="Resources\wrench.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

@@ -14,35 +14,44 @@ namespace TimeClock.Views
       Title = "Home";
       this.BackgroundColor = Color.FromHex("#161616");
 
-      ImageButton codeButton = new ImageButton
+      ImageButton clockImageButton = new ImageButton
       {
-        Source = "code.png",
+        Source = "timeClock.png",
         HorizontalOptions = LayoutOptions.Center,
         VerticalOptions = LayoutOptions.CenterAndExpand
       };
-      codeButton.Clicked += OnCodeImageButtonClicked;
+      clockImageButton.Clicked += OnClockImageButtonClicked;
 
-      ImageButton imageScanBtn = new ImageButton
+      ImageButton phoneImageBtn = new ImageButton
       {
-        Source = "ScanBtn.png",
+        Source = "phoneDir.png",
         HorizontalOptions = LayoutOptions.Center,
-        VerticalOptions = LayoutOptions.CenterAndExpand,
-        BackgroundColor = Color.LightBlue
+        VerticalOptions = LayoutOptions.CenterAndExpand
       };
-      imageScanBtn.Clicked += OnInvImgBtnClicked;
+      phoneImageBtn.Clicked += OnPhoneImageButtonClicked;
+
+      ImageButton jobImageBtn = new ImageButton
+      {
+        Source = "wrench.png",
+        HorizontalOptions = LayoutOptions.Center,
+        VerticalOptions = LayoutOptions.CenterAndExpand
+      };
+      jobImageBtn.Clicked += OnJobImageButtonClicked;
 
       string footerText = "© " + DateTime.Now.Year.ToString() + " Techno Herder";
 
       Content = new StackLayout
       {
         Children = {
-          codeButton,
-          imageScanBtn,
+          clockImageButton,
+          phoneImageBtn,
+          jobImageBtn,
           new Label { Text = footerText, TextColor = Color.FromHex("#97bdfc"), Padding = new Thickness( 25, 0, 0, 20 ) }
         }
       };
     }
-    void OnInvImgBtnClicked(object sender, EventArgs e)
+
+    void OnPhoneImageButtonClicked(object sender, EventArgs e)
     {
 
       try
@@ -84,7 +93,13 @@ namespace TimeClock.Views
 
       
     }
-    void OnCodeImageButtonClicked(object sender, EventArgs e)
+
+    void OnClockImageButtonClicked(object sender, EventArgs e)
+    {
+      Navigation.PushAsync(new TimeClockListPageCS());
+    }
+
+    void OnJobImageButtonClicked(object sender, EventArgs e)
     {
       Navigation.PushAsync(new TimeClockListPageCS());
     }

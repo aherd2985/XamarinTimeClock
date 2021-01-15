@@ -34,7 +34,7 @@ namespace TimeClock
                         VerticalTextAlignment = TextAlignment.Center,
                         HorizontalOptions = LayoutOptions.StartAndExpand
                     };
-                    label.SetBinding(Label.TextProperty, "Name");
+                    label.SetBinding(Label.TextProperty, "TimePunch");
 
                     var tick = new Image
                     {

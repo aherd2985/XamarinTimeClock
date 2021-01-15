@@ -4,6 +4,7 @@
              x:Class="TimeClock.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="darkBlue">#000033</Color>
             <Color x:Key="primaryGreen">#91CA47</Color>
             <Color x:Key="primaryDarkGreen">#6FA22E</Color>
         </ResourceDictionary>

@@ -14,7 +14,7 @@ namespace TimeClock
             InitializeComponent();
 
             var nav = new NavigationPage(new LandingPageCS());
-            nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGreen"];
+            nav.BarBackgroundColor = (Color)App.Current.Resources["darkBlue"];
             nav.BarTextColor = Color.White;
 
             MainPage = nav;
