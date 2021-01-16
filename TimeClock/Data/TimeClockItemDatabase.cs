@@ -38,9 +38,9 @@ namespace TimeClock
             return Database.Table<TimeClockItem>().ToListAsync();
         }
 
-        public Task<List<TimeClockItem>> GetItemsNotDoneAsync()
+        public Task<List<TimeClockItem>> GetMockItemsAsync()
         {
-            return Database.QueryAsync<TimeClockItem>("SELECT * FROM [TimeClockItem] WHERE [Done] = 0");
+            return Database.QueryAsync<TimeClockItem>("SELECT * FROM [TimeClockItem] WHERE [IsMock] = 0");
         }
 
         public Task<TimeClockItem> GetItemAsync(int id)

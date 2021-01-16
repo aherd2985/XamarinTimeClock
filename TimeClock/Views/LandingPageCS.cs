@@ -56,19 +56,8 @@ namespace TimeClock.Views
 
       try
       {
-        GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Best);
-        Location location = Geolocation.GetLocationAsync(request).Result;
+        
         Location msLocation = new Location(47.645160, -122.1306032);
-
-        if (location != null)
-        {
-          if (location.IsFromMockProvider)
-          {
-            // location is from a mock provider
-          }
-          Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-          double miles = Location.CalculateDistance(msLocation, location, DistanceUnits.Miles);
-        }
 
         MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
         Map.OpenAsync(msLocation, options);

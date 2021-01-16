@@ -15,7 +15,7 @@
                 <ViewCell>
                     <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="{Binding TimePunch}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding Done}" />
+                        <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding IsMock}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

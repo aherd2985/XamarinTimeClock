@@ -18,13 +18,6 @@ namespace TimeClock
             await Navigation.PopAsync();
         }
 
-        async void OnDeleteClicked(object sender, EventArgs e)
-        {
-            var timeClock = (TimeClockItem)BindingContext;
-            await App.Database.DeleteItemAsync(timeClock);
-            await Navigation.PopAsync();
-        }
-
         async void OnCancelClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

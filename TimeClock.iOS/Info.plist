@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>TimeClock</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.technoherder.TimeClock</string>
+	<string>com.TechnoHerder.TimeClock</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -44,6 +44,6 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Fill in a reason why your app needs access to location.</string>
+	<string>Record gps location for compliance.</string>
 </dict>
 </plist>
