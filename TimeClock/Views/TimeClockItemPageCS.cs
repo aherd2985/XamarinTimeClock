@@ -26,6 +26,10 @@ namespace TimeClock
           if (location != null)
           {
             timeClock.gpsDetail = location.Accuracy.ToString();
+            timeClock.gpsLatitude = location.Latitude.ToString();
+            timeClock.gpsLongitude = location.Longitude.ToString();
+            timeClock.gpsLastTimestamp = location.Timestamp;
+
             if (location.IsFromMockProvider)
             {
               // location is from a mock provider

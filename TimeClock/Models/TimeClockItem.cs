@@ -10,7 +10,9 @@ namespace TimeClock
     public string Notes { get; set; }
     public bool IsMock { get; set; }
     public DateTime TimePunch { get; set; }
-    public string gpsLocation { get; set; }
+    public string gpsLatitude { get; set; }
+    public string gpsLongitude { get; set; }
+    public DateTimeOffset? gpsLastTimestamp { get; set; }
     public string gpsDetail { get; set; }
   }
 }
