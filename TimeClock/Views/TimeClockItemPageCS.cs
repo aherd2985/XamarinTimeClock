@@ -12,14 +12,12 @@ namespace TimeClock
             var notesEntry = new Entry();
             notesEntry.SetBinding(Entry.TextProperty, "Notes");
 
-            var doneSwitch = new Switch();
-            doneSwitch.SetBinding(Switch.IsToggledProperty, "Done");
-
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += async (sender, e) =>
             {
                 var timeClock = (TimeClockItem)BindingContext;
-                timeClock.TimePunch = DateTime.Now;
+                if(timeClock.TimePunch.Year == 1)
+                  timeClock.TimePunch = DateTime.Now;
                 await App.Database.SaveItemAsync(timeClock);
                 await Navigation.PopAsync();
             };
@@ -46,8 +44,6 @@ namespace TimeClock
                 {
                     new Label { Text = "Notes" },
                     notesEntry,
-                    new Label { Text = "Done" },
-                    doneSwitch,
                     saveButton,
                     deleteButton,
                     cancelButton
