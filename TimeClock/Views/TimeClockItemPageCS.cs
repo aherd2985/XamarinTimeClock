@@ -9,6 +9,7 @@ namespace TimeClock
     public TimeClockItemPageCS()
     {
       Title = "TimeClock Item";
+      BackgroundColor = Color.Black;
 
       Entry notesEntry = new Entry();
       notesEntry.SetBinding(Entry.TextProperty, "Notes");
@@ -20,6 +21,13 @@ namespace TimeClock
         if (timeClock.TimePunch.Year == 1)
         {
           timeClock.TimePunch = DateTime.Now;
+
+          TimeClockItem lastItem = App.Database.GetLastTimeClockItemAsync().Result;
+          if (lastItem != null)
+            timeClock.IsClockIn = lastItem.IsClockIn == false;
+          else
+            timeClock.IsClockIn = true;
+
           Location location = await Geolocation.GetLastKnownLocationAsync();
           timeClock.IsMock = false;
 

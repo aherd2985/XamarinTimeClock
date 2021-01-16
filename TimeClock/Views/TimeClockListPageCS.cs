@@ -11,7 +11,7 @@ namespace TimeClock
       Title = "TimeClock";
       BackgroundColor = Color.Black;
 
-      var toolbarItem = new ToolbarItem
+      ToolbarItem toolbarItem = new ToolbarItem
       {
         Text = "+",
         IconImageSource = Device.RuntimePlatform == Device.iOS ? null : "plus.png"
@@ -27,13 +27,15 @@ namespace TimeClock
 
       listView = new ListView
       {
+        BackgroundColor = Color.Black,
         Margin = new Thickness(20),
         ItemTemplate = new DataTemplate(() =>
         {
-          var label = new Label
+          Label label = new Label
           {
             VerticalTextAlignment = TextAlignment.Center,
-            HorizontalOptions = LayoutOptions.StartAndExpand
+            HorizontalOptions = LayoutOptions.StartAndExpand,
+            TextColor = Color.White
           };
           label.SetBinding(Label.TextProperty, "TimePunch");
 
@@ -42,9 +44,9 @@ namespace TimeClock
             Source = ImageSource.FromFile("check.png"),
             HorizontalOptions = LayoutOptions.End
           };
-          tick.SetBinding(VisualElement.IsVisibleProperty, "IsMock");
+          tick.SetBinding(VisualElement.IsVisibleProperty, "IsClockIn");
 
-          var stackLayout = new StackLayout
+          StackLayout stackLayout = new StackLayout
           {
             Margin = new Thickness(20, 0, 0, 0),
             Orientation = StackOrientation.Horizontal,

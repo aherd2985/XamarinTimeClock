@@ -6,64 +6,69 @@ using SQLite;
 
 namespace TimeClock
 {
-    public class TimeClockItemDatabase
+  public class TimeClockItemDatabase
+  {
+    static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
     {
-        static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
-        {
-            return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-        });
+      return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+    });
 
-        static SQLiteAsyncConnection Database => lazyInitializer.Value;
-        static bool initialized = false;
+    static SQLiteAsyncConnection Database => lazyInitializer.Value;
+    static bool initialized = false;
 
-        public TimeClockItemDatabase()
-        {
-            InitializeAsync().SafeFireAndForget(false);
-        }
-
-        async Task InitializeAsync()
-        {
-            if (!initialized)
-            {
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(TimeClockItem).Name))
-                {
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(TimeClockItem)).ConfigureAwait(false);                    
-                }
-                initialized = true;
-            }
-        }
-
-        public Task<List<TimeClockItem>> GetItemsAsync()
-        {
-            return Database.Table<TimeClockItem>().ToListAsync();
-        }
-
-        public Task<List<TimeClockItem>> GetMockItemsAsync()
-        {
-            return Database.QueryAsync<TimeClockItem>("SELECT * FROM [TimeClockItem] WHERE [IsMock] = 0");
-        }
-
-        public Task<TimeClockItem> GetItemAsync(int id)
-        {
-            return Database.Table<TimeClockItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
-        }
-
-        public Task<int> SaveItemAsync(TimeClockItem item)
-        {
-            if (item.ID != 0)
-            {
-                return Database.UpdateAsync(item);
-            }
-            else
-            {
-                return Database.InsertAsync(item);
-            }
-        }
-
-        public Task<int> DeleteItemAsync(TimeClockItem item)
-        {
-            return Database.DeleteAsync(item);
-        }
+    public TimeClockItemDatabase()
+    {
+      InitializeAsync().SafeFireAndForget(false);
     }
+
+    async Task InitializeAsync()
+    {
+      if (!initialized)
+      {
+        if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(TimeClockItem).Name))
+        {
+          await Database.CreateTablesAsync(CreateFlags.None, typeof(TimeClockItem)).ConfigureAwait(false);
+        }
+        initialized = true;
+      }
+    }
+
+    public Task<List<TimeClockItem>> GetItemsAsync()
+    {
+      return Database.Table<TimeClockItem>().ToListAsync();
+    }
+
+    public Task<List<TimeClockItem>> GetMockItemsAsync()
+    {
+      return Database.QueryAsync<TimeClockItem>("SELECT * FROM [TimeClockItem] WHERE [IsMock] = 0");
+    }
+
+    public Task<TimeClockItem> GetItemAsync(int id)
+    {
+      return Database.Table<TimeClockItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
+    }
+
+    public Task<TimeClockItem> GetLastTimeClockItemAsync()
+    {
+      return Database.Table<TimeClockItem>().OrderByDescending(x => x.ID).FirstOrDefaultAsync();
+    }
+
+    public Task<int> SaveItemAsync(TimeClockItem item)
+    {
+      if (item.ID != 0)
+      {
+        return Database.UpdateAsync(item);
+      }
+      else
+      {
+        return Database.InsertAsync(item);
+      }
+    }
+
+    public Task<int> DeleteItemAsync(TimeClockItem item)
+    {
+      return Database.DeleteAsync(item);
+    }
+  }
 }
 
