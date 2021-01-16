@@ -13,6 +13,7 @@ namespace TimeClock
 
       Entry notesEntry = new Entry();
       notesEntry.SetBinding(Entry.TextProperty, "Notes");
+      notesEntry.BackgroundColor = Color.Black;
 
       Button saveButton = new Button { Text = "Save" };
       saveButton.Clicked += async (sender, e) =>
@@ -64,7 +65,7 @@ namespace TimeClock
         VerticalOptions = LayoutOptions.StartAndExpand,
         Children =
                 {
-                    new Label { Text = "Notes" },
+                    new Label { Text = "Notes", TextColor = Color.White },
                     notesEntry,
                     saveButton,
                     cancelButton

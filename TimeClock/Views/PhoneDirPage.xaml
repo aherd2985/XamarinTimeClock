@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TimeClock.Views.PhoneDirPage" Title="Phone Directory">
+    <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected" BackgroundColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <StackLayout BackgroundColor="Black" Orientation="Horizontal" Margin="20,20,20,0" 
+                                         HorizontalOptions="FillAndExpand" Padding="0,0,0,0" >
+                                <Label TextColor="White" Text="{Binding FirstName}" VerticalTextAlignment="Start"
+                                       HorizontalOptions="Start" />
+                                <Label TextColor="White" Text="{Binding LastName}" VerticalTextAlignment="Start"
+                                       HorizontalOptions="Start" />
+                                <Label TextColor="White" Text="{Binding MarketNm}" VerticalTextAlignment="Start"
+                                       HorizontalOptions="Start" />
+                                <Label TextColor="White" Text="{Binding Title}" VerticalTextAlignment="Start"
+                                       HorizontalOptions="Start" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

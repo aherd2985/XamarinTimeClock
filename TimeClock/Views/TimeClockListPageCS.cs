@@ -39,7 +39,7 @@ namespace TimeClock
           };
           label.SetBinding(Label.TextProperty, "TimePunch");
 
-          var tick = new Image
+          Image tick = new Image
           {
             Source = ImageSource.FromFile("check.png"),
             HorizontalOptions = LayoutOptions.End

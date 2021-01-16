@@ -53,10 +53,23 @@ namespace TimeClock.Views
 
     void OnPhoneImageButtonClicked(object sender, EventArgs e)
     {
+      Navigation.PushAsync(new PhoneDirPage());
+
+
+      
+    }
+
+    void OnClockImageButtonClicked(object sender, EventArgs e)
+    {
+      Navigation.PushAsync(new TimeClockListPageCS());
+    }
+
+    void OnJobImageButtonClicked(object sender, EventArgs e)
+    {
 
       try
       {
-        
+
         Location msLocation = new Location(47.645160, -122.1306032);
 
         MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
@@ -78,19 +91,6 @@ namespace TimeClock.Views
       {
         // Unable to get location
       }
-
-
-      
-    }
-
-    void OnClockImageButtonClicked(object sender, EventArgs e)
-    {
-      Navigation.PushAsync(new TimeClockListPageCS());
-    }
-
-    void OnJobImageButtonClicked(object sender, EventArgs e)
-    {
-      Navigation.PushAsync(new TimeClockListPageCS());
     }
   }
 
