@@ -11,58 +11,51 @@ namespace TimeClock
       Title = "TimeClock Item";
       BackgroundColor = Color.Black;
 
+      //TimeClockItem codeItem = (TimeClockItem)BindingContext;
+
       Entry notesEntry = new Entry();
       notesEntry.SetBinding(Entry.TextProperty, "Notes");
       notesEntry.BackgroundColor = Color.FromHex("#292929");
       notesEntry.TextColor = Color.FromHex("#32cd32");
 
-      Entry timeEntry = new Entry();
-      timeEntry.SetBinding(Entry.TextProperty, "TimePunch");
-      timeEntry.BackgroundColor = Color.FromHex("#292929");
-      timeEntry.TextColor = Color.FromHex("#32cd32");
-      timeEntry.IsReadOnly = true;
+      Binding newPb = new Binding("TimePunch");
+      newPb.StringFormat = "Punch Timestamp: {0:MMM d, yyyy hh:mm tt}";
+      Label tpLbl = new Label();
+      tpLbl.SetBinding(Label.TextProperty, newPb);
+      tpLbl.TextColor = Color.FromHex("#CCFFFF");
+      tpLbl.Margin = new Thickness(0,30,0,0);
 
+      newPb = new Binding("gpsLatitude");
+      newPb.StringFormat = "GPS Latitude: {0}";
+      Label latLbl = new Label();
+      latLbl.SetBinding(Label.TextProperty, newPb);
+      latLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      var newPb = new Binding("TimePunch");
-      //newPb.ElementName = pb.ElementName;
-      newPb.StringFormat = "{0:d}";
-      //MinText.SetBinding(TextBlock.TextProperty, newPb);
+      newPb = new Binding("gpsLongitude");
+      newPb.StringFormat = "GPS Longitude: {0}";
+      Label lonLbl = new Label();
+      lonLbl.SetBinding(Label.TextProperty, newPb);
+      lonLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      Label label = new Label();
-      label.SetBinding(Label.TextProperty, newPb);
-      label.TextColor = Color.Red;
+      newPb = new Binding("gpsLastTimestamp");
+      newPb.StringFormat = "GPS Last TS: {0:MMM d, yyyy hh:mm tt}";
+      Label gpsLastLbl = new Label();
+      gpsLastLbl.SetBinding(Label.TextProperty, newPb);
+      gpsLastLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      Entry latEntry = new Entry();
-      latEntry.SetBinding(Entry.TextProperty, "gpsLatitude");
-      latEntry.BackgroundColor = Color.FromHex("#292929");
-      latEntry.TextColor = Color.FromHex("#32cd32");
-      latEntry.IsReadOnly = true;
+      newPb = new Binding("gpsDetail");
+      newPb.StringFormat = "GPS Detail Level: {0}";
+      Label gpsDetailLbl = new Label();
+      gpsDetailLbl.SetBinding(Label.TextProperty, newPb);
+      gpsDetailLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      Entry lonEntry = new Entry();
-      lonEntry.SetBinding(Entry.TextProperty, "gpsLongitude");
-      lonEntry.BackgroundColor = Color.FromHex("#292929");
-      lonEntry.TextColor = Color.FromHex("#32cd32");
-      lonEntry.IsReadOnly = true;
+      newPb = new Binding("IsMock");
+      newPb.StringFormat = "GPS Data was Mocked: {0}";
+      Label mockLbl = new Label();
+      mockLbl.SetBinding(Label.TextProperty, newPb);
+      mockLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      Entry gpsLastEntry = new Entry();
-      gpsLastEntry.SetBinding(Entry.TextProperty, "gpsLastTimestamp");
-      gpsLastEntry.BackgroundColor = Color.FromHex("#292929");
-      gpsLastEntry.TextColor = Color.FromHex("#32cd32");
-      gpsLastEntry.IsReadOnly = true;
-
-      Entry gpsDetailEntry = new Entry();
-      gpsDetailEntry.SetBinding(Entry.TextProperty, "gpsDetail");
-      gpsDetailEntry.BackgroundColor = Color.FromHex("#292929");
-      gpsDetailEntry.TextColor = Color.FromHex("#32cd32");
-      gpsDetailEntry.IsReadOnly = true;
-
-      Entry mockEntry = new Entry();
-      mockEntry.SetBinding(Entry.TextProperty, "IsMock");
-      mockEntry.BackgroundColor = Color.FromHex("#292929");
-      mockEntry.TextColor = Color.FromHex("#32cd32");
-      mockEntry.IsReadOnly = true;
-
-      Button saveButton = new Button { Text = "Save" };
+      Button saveButton = new Button { Text = "Save", Margin = new Thickness(0,50,0,0) };
       saveButton.Clicked += async (sender, e) =>
       {
         TimeClockItem timeClock = (TimeClockItem)BindingContext;
@@ -87,7 +80,17 @@ namespace TimeClock
 
           if (location != null)
           {
-            timeClock.gpsDetail = location.Accuracy.ToString();
+            if (location.Accuracy.HasValue)
+            {
+              double value = location.Accuracy.Value;
+
+              GeolocationAccuracy enumDisplayStatus = (GeolocationAccuracy)value;
+              string stringValue = enumDisplayStatus.ToString();
+
+              timeClock.gpsDetail = stringValue;
+
+            }
+
             timeClock.gpsLatitude = location.Latitude.ToString();
             timeClock.gpsLongitude = location.Longitude.ToString();
             timeClock.gpsLastTimestamp = location.Timestamp;
@@ -120,13 +123,12 @@ namespace TimeClock
                 {
                     new Label { Text = "Notes", TextColor = Color.White },
                     notesEntry,
-                    timeEntry,
-                    label,
-                    latEntry,
-                    lonEntry,
-                    gpsLastEntry,
-                    gpsDetailEntry,
-                    mockEntry,
+                    tpLbl,
+                    latLbl,
+                    lonLbl,
+                    gpsLastLbl,
+                    gpsDetailLbl,
+                    mockLbl,
                     saveButton,
                     cancelButton
                 }
