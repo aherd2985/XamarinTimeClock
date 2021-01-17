@@ -59,52 +59,6 @@ namespace TimeClock
       saveButton.Clicked += async (sender, e) =>
       {
         TimeClockItem timeClock = (TimeClockItem)BindingContext;
-        if (timeClock.TimePunch.Year == 1)
-        {
-          timeClock.TimePunch = DateTime.Now;
-
-          TimeClockItem lastItem = App.Database.GetLastTimeClockItemAsync().Result;
-          if (lastItem != null)
-          {
-            timeClock.IsClockIn = lastItem.IsClockIn == false;
-            timeClock.IsClockOut = lastItem.IsClockIn == true;
-          }
-          else
-          {
-            timeClock.IsClockIn = true;
-            timeClock.IsClockOut = false;
-          }
-
-          Location location = await Geolocation.GetLastKnownLocationAsync();
-          timeClock.IsMock = false;
-
-          if (location != null)
-          {
-            if (location.Accuracy.HasValue)
-            {
-              double value = location.Accuracy.Value;
-
-              GeolocationAccuracy enumDisplayStatus = (GeolocationAccuracy)value;
-              string stringValue = enumDisplayStatus.ToString();
-
-              timeClock.gpsDetail = stringValue;
-
-            }
-
-            timeClock.gpsLatitude = location.Latitude.ToString();
-            timeClock.gpsLongitude = location.Longitude.ToString();
-            timeClock.gpsLastTimestamp = location.Timestamp;
-
-            if (location.IsFromMockProvider)
-            {
-              // location is from a mock provider
-              timeClock.IsMock = true;
-            }
-            //Location msLocation = new Location(47.645160, -122.1306032);
-            //double miles = Location.CalculateDistance(msLocation, location, DistanceUnits.Miles);
-          }
-        }
-
         await App.Database.SaveItemAsync(timeClock);
         await Navigation.PopAsync();
       };

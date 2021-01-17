@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using TimeClock.Views;
+using Xamarin.Forms;
 
 namespace TimeClock
 {
@@ -18,7 +19,7 @@ namespace TimeClock
       };
       toolbarItem.Clicked += async (sender, e) =>
       {
-        await Navigation.PushAsync(new TimeClockItemPageCS
+        await Navigation.PushAsync(new NewTimeClockPageCS()
         {
           BindingContext = new TimeClockItem()
         });
