@@ -24,6 +24,5 @@ The app functionality is:
 In all cases the tasks are stored in a local SQLite database.
 
 
-![Timeclock Application screenshot](Screenshots/Simulator Screen Shot - iPhone 8 Plus - 2021-01-17 at 17.08.30.png
- "Timeclock Application screenshot - Punch Detail")
+![Timeclock Application screenshot](Screenshots/PunchDetail.png "Timeclock Application screenshot - Punch Detail")
 
