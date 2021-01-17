@@ -46,12 +46,19 @@ namespace TimeClock
           };
           tick.SetBinding(VisualElement.IsVisibleProperty, "IsClockIn");
 
+          Image outImg = new Image
+          {
+            Source = ImageSource.FromFile("OutIcon.png"),
+            HorizontalOptions = LayoutOptions.End
+          };
+          outImg.SetBinding(VisualElement.IsVisibleProperty, "IsClockOut");
+
           StackLayout stackLayout = new StackLayout
           {
             Margin = new Thickness(20, 0, 0, 0),
             Orientation = StackOrientation.Horizontal,
             HorizontalOptions = LayoutOptions.FillAndExpand,
-            Children = { label, tick }
+            Children = { label, tick, outImg }
           };
 
           return new ViewCell { View = stackLayout };

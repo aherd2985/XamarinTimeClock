@@ -18,6 +18,7 @@
                         <StackLayout BackgroundColor="Black" Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="{Binding TimePunch}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                             <Image Source="InIcon.png" HorizontalOptions="End" IsVisible="{Binding IsClockIn}" />
+                            <Image Source="OutIcon.png" HorizontalOptions="End" IsVisible="{Binding IsClockOut}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

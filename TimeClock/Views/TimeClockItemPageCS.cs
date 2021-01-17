@@ -16,6 +16,42 @@ namespace TimeClock
       notesEntry.BackgroundColor = Color.FromHex("#292929");
       notesEntry.TextColor = Color.FromHex("#32cd32");
 
+      Entry timeEntry = new Entry();
+      timeEntry.SetBinding(Entry.TextProperty, "TimePunch");
+      timeEntry.BackgroundColor = Color.FromHex("#292929");
+      timeEntry.TextColor = Color.FromHex("#32cd32");
+      timeEntry.IsReadOnly = true;
+
+      Entry latEntry = new Entry();
+      latEntry.SetBinding(Entry.TextProperty, "gpsLatitude");
+      latEntry.BackgroundColor = Color.FromHex("#292929");
+      latEntry.TextColor = Color.FromHex("#32cd32");
+      latEntry.IsReadOnly = true;
+
+      Entry lonEntry = new Entry();
+      lonEntry.SetBinding(Entry.TextProperty, "gpsLongitude");
+      lonEntry.BackgroundColor = Color.FromHex("#292929");
+      lonEntry.TextColor = Color.FromHex("#32cd32");
+      lonEntry.IsReadOnly = true;
+
+      Entry gpsLastEntry = new Entry();
+      gpsLastEntry.SetBinding(Entry.TextProperty, "gpsLastTimestamp");
+      gpsLastEntry.BackgroundColor = Color.FromHex("#292929");
+      gpsLastEntry.TextColor = Color.FromHex("#32cd32");
+      gpsLastEntry.IsReadOnly = true;
+
+      Entry gpsDetailEntry = new Entry();
+      gpsDetailEntry.SetBinding(Entry.TextProperty, "gpsDetail");
+      gpsDetailEntry.BackgroundColor = Color.FromHex("#292929");
+      gpsDetailEntry.TextColor = Color.FromHex("#32cd32");
+      gpsDetailEntry.IsReadOnly = true;
+
+      Entry mockEntry = new Entry();
+      mockEntry.SetBinding(Entry.TextProperty, "IsMock");
+      mockEntry.BackgroundColor = Color.FromHex("#292929");
+      mockEntry.TextColor = Color.FromHex("#32cd32");
+      mockEntry.IsReadOnly = true;
+
       Button saveButton = new Button { Text = "Save" };
       saveButton.Clicked += async (sender, e) =>
       {
@@ -26,9 +62,15 @@ namespace TimeClock
 
           TimeClockItem lastItem = App.Database.GetLastTimeClockItemAsync().Result;
           if (lastItem != null)
+          {
             timeClock.IsClockIn = lastItem.IsClockIn == false;
+            timeClock.IsClockOut = lastItem.IsClockIn == true;
+          }
           else
+          {
             timeClock.IsClockIn = true;
+            timeClock.IsClockOut = false;
+          }
 
           Location location = await Geolocation.GetLastKnownLocationAsync();
           timeClock.IsMock = false;
@@ -54,7 +96,7 @@ namespace TimeClock
         await Navigation.PopAsync();
       };
 
-      var cancelButton = new Button { Text = "Cancel" };
+      Button cancelButton = new Button { Text = "Cancel" };
       cancelButton.Clicked += async (sender, e) =>
       {
         await Navigation.PopAsync();
@@ -68,6 +110,13 @@ namespace TimeClock
                 {
                     new Label { Text = "Notes", TextColor = Color.White },
                     notesEntry,
+                    timeEntry,
+                    label,
+                    latEntry,
+                    lonEntry,
+                    gpsLastEntry,
+                    gpsDetailEntry,
+                    mockEntry,
                     saveButton,
                     cancelButton
                 }

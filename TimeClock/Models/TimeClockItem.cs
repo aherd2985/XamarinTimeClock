@@ -15,5 +15,6 @@ namespace TimeClock
     public DateTimeOffset? gpsLastTimestamp { get; set; }
     public string gpsDetail { get; set; }
     public bool IsClockIn { get; set; }
+    public bool IsClockOut { get; set; }
   }
 }
