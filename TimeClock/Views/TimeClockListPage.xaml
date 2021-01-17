@@ -17,7 +17,7 @@
                     <ViewCell>
                         <StackLayout BackgroundColor="Black" Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <Label Text="{Binding TimePunch}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                            <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding IsClockIn}" />
+                            <Image Source="InIcon.png" HorizontalOptions="End" IsVisible="{Binding IsClockIn}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -13,7 +13,8 @@ namespace TimeClock
 
       Entry notesEntry = new Entry();
       notesEntry.SetBinding(Entry.TextProperty, "Notes");
-      notesEntry.BackgroundColor = Color.Black;
+      notesEntry.BackgroundColor = Color.FromHex("#292929");
+      notesEntry.TextColor = Color.FromHex("#32cd32");
 
       Button saveButton = new Button { Text = "Save" };
       saveButton.Clicked += async (sender, e) =>

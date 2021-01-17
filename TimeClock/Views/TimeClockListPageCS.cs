@@ -41,7 +41,7 @@ namespace TimeClock
 
           Image tick = new Image
           {
-            Source = ImageSource.FromFile("check.png"),
+            Source = ImageSource.FromFile("InIcon.png"),
             HorizontalOptions = LayoutOptions.End
           };
           tick.SetBinding(VisualElement.IsVisibleProperty, "IsClockIn");
