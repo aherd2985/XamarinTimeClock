@@ -22,6 +22,16 @@ namespace TimeClock
       timeEntry.TextColor = Color.FromHex("#32cd32");
       timeEntry.IsReadOnly = true;
 
+
+      var newPb = new Binding("TimePunch");
+      //newPb.ElementName = pb.ElementName;
+      newPb.StringFormat = "{0:d}";
+      //MinText.SetBinding(TextBlock.TextProperty, newPb);
+
+      Label label = new Label();
+      label.SetBinding(Label.TextProperty, newPb);
+      label.TextColor = Color.Red;
+
       Entry latEntry = new Entry();
       latEntry.SetBinding(Entry.TextProperty, "gpsLatitude");
       latEntry.BackgroundColor = Color.FromHex("#292929");
