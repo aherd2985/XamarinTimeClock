@@ -7,6 +7,14 @@ namespace TimeClock.Views
 {
   public partial class PhoneDirPage : ContentPage
   {
+    private List<PersonList> _listOfPeople;
+    public List<PersonList> ListOfPeople
+    {
+      get { return _listOfPeople; }
+
+      set { _listOfPeople = value; base.OnPropertyChanged(); }
+    }
+
     public PhoneDirPage()
     {
       InitializeComponent();
@@ -17,7 +25,38 @@ namespace TimeClock.Views
       base.OnAppearing();
 
 
-      listView.ItemsSource = getEmployees();
+      //listView.ItemsSource = getEmployees();
+
+      var sList = new PersonList()
+    {
+        new EmployeeItem() { FirstName = "Sally", LastName = "Sampson" },
+        new EmployeeItem() { FirstName = "Taylor", LastName = "Swift" },
+        new EmployeeItem() { FirstName = "John", LastName = "Smith" }
+    };
+      sList.Heading = "S";
+
+      var dList = new PersonList()
+    {
+        new EmployeeItem() { FirstName = "Jane", LastName = "Doe" }
+    };
+      dList.Heading = "D";
+
+      var jList = new PersonList()
+    {
+        new EmployeeItem() { FirstName = "Billy", LastName = "Joel" }
+    };
+      jList.Heading = "J";
+
+      var list = new List<PersonList>()
+    {
+
+        dList,
+        jList,
+        sList
+    };
+
+      //ListOfPeople = list;
+      listView.ItemsSource = list;
       //listView.ItemsSource = await App.Database.GetItemsAsync();
     }
 

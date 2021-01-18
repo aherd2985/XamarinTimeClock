@@ -13,5 +13,14 @@ namespace TimeClock.Models
     public string Email { get; set; }
     public string MarketNm { get; set; }
     public string Title { get; set; }
+
+
+    public string DisplayName
+    {
+      get
+      {
+        return $"{LastName}, {FirstName}";
+      }
+    }
   }
 }
