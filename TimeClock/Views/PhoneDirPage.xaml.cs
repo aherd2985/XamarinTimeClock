@@ -29,21 +29,21 @@ namespace TimeClock.Views
 
       var sList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Sally", LastName = "Sampson" },
-        new EmployeeItem() { FirstName = "Taylor", LastName = "Swift" },
-        new EmployeeItem() { FirstName = "John", LastName = "Smith" }
+        new EmployeeItem() { FirstName = "Emily", LastName = "Sampson", Title = "Bounty Hunter", MarketNm = "West" },
+        new EmployeeItem() { FirstName = "Rex", LastName = "Shin", Title = "Runner", MarketNm = "Interloper" },
+        new EmployeeItem() { FirstName = "Zach", LastName = "Smith", Title = "Guard", MarketNm = "Security" }
     };
       sList.Heading = "S";
 
       var dList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Jane", LastName = "Doe" }
+        new EmployeeItem() { FirstName = "Jane", LastName = "Doe", Title = "Crusader", MarketNm = "Operations" }
     };
       dList.Heading = "D";
 
       var jList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Billy", LastName = "Joel" }
+        new EmployeeItem() { FirstName = "Shoeless", LastName = "Jackson", Title = "Public Relations", MarketNm = "Marketing" }
     };
       jList.Heading = "J";
 
@@ -60,21 +60,13 @@ namespace TimeClock.Views
       //listView.ItemsSource = await App.Database.GetItemsAsync();
     }
 
-    async void OnItemAdded(object sender, EventArgs e)
-    {
-      await Navigation.PushAsync(new TimeClockItemPage
-      {
-        BindingContext = new TimeClockItem()
-      });
-    }
-
     async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
       if (e.SelectedItem != null)
       {
-        await Navigation.PushAsync(new TimeClockItemPage
+        await Navigation.PushAsync(new EmployeeContactPage
         {
-          BindingContext = e.SelectedItem as TimeClockItem
+          BindingContext = e.SelectedItem as EmployeeItem
         });
       }
     }

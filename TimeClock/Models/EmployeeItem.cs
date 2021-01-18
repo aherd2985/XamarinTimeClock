@@ -22,5 +22,13 @@ namespace TimeClock.Models
         return $"{LastName}, {FirstName}";
       }
     }
+
+    public string DetailLbl
+    {
+      get
+      {
+        return $"{Title} - {MarketNm}";
+      }
+    }
   }
 }

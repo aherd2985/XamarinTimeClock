@@ -3,6 +3,7 @@
              x:Class="TimeClock.Views.PhoneDirPage" Title="Phone Directory">
     <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView x:Name="listView" ItemSelected="OnListItemSelected" 
+          HasUnevenRows="true"
           IsGroupingEnabled="true">
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
@@ -14,11 +15,33 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                       <Label Text="{Binding DisplayName}" />
-                    </ViewCell>
-                </DataTemplate>
+            <ViewCell>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Text="{Binding DisplayName}"
+                           FontAttributes="Bold" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Text="{Binding MarketNm}"
+                           VerticalOptions="End" />
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Text="{Binding Title}"
+                           VerticalOptions="End" />
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
     </ScrollView>
 </ContentPage>
