@@ -12,12 +12,14 @@ namespace TimeClock.Views
 
       //TimeClockItem codeItem = (TimeClockItem)BindingContext;
 
-      Entry notesEntry = new Entry();
-      notesEntry.SetBinding(Entry.TextProperty, "Notes");
+      Editor notesEntry = new Editor();
+      notesEntry.SetBinding(Editor.TextProperty, "Notes");
       notesEntry.BackgroundColor = Color.FromHex("#292929");
       notesEntry.TextColor = Color.FromHex("#32cd32");
+      notesEntry.HeightRequest = 300;
 
-      Button saveButton = new Button { Text = "Save", Margin = new Thickness(0, 50, 0, 0) };
+      Button saveButton = new Button { Text = "Create", Margin = new Thickness(0, 50, 0, 0), BackgroundColor = Color.FromHex("#00FFFF"), TextColor = Color.FromHex("#000033") };
+
       saveButton.Clicked += async (sender, e) =>
       {
         TimeClockItem timeClock = (TimeClockItem)BindingContext;
@@ -69,7 +71,7 @@ namespace TimeClock.Views
         await Navigation.PopAsync();
       };
 
-      Button cancelButton = new Button { Text = "Cancel" };
+      Button cancelButton = new Button { Text = "Cancel", BackgroundColor = Color.FromHex("#FF0000") , TextColor = Color.White, Margin = new Thickness(0, 20, 0, 0) };
       cancelButton.Clicked += async (sender, e) =>
       {
         await Navigation.PopAsync();

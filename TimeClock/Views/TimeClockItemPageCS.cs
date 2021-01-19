@@ -23,7 +23,7 @@ namespace TimeClock
       Label tpLbl = new Label();
       tpLbl.SetBinding(Label.TextProperty, newPb);
       tpLbl.TextColor = Color.FromHex("#CCFFFF");
-      tpLbl.Margin = new Thickness(0,30,0,0);
+      tpLbl.Margin = new Thickness(0, 30, 0, 0);
 
       newPb = new Binding("gpsLatitude");
       newPb.StringFormat = "GPS Latitude: {0}";
@@ -55,7 +55,7 @@ namespace TimeClock
       mockLbl.SetBinding(Label.TextProperty, newPb);
       mockLbl.TextColor = Color.FromHex("#CCFFFF");
 
-      Button saveButton = new Button { Text = "Save", Margin = new Thickness(0,50,0,0) };
+      Button saveButton = new Button { Text = "Save", Margin = new Thickness(0, 50, 0, 0), BackgroundColor = Color.FromHex("#00FFFF"), TextColor = Color.FromHex("#000033") };
       saveButton.Clicked += async (sender, e) =>
       {
         TimeClockItem timeClock = (TimeClockItem)BindingContext;
@@ -63,7 +63,7 @@ namespace TimeClock
         await Navigation.PopAsync();
       };
 
-      Button cancelButton = new Button { Text = "Cancel" };
+      Button cancelButton = new Button { Text = "Cancel", BackgroundColor = Color.FromHex("#FF0000"), TextColor = Color.White, Margin = new Thickness(0, 20, 0, 0) };
       cancelButton.Clicked += async (sender, e) =>
       {
         await Navigation.PopAsync();
