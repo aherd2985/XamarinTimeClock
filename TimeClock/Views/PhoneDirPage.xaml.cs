@@ -29,21 +29,21 @@ namespace TimeClock.Views
 
       var sList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Emily", LastName = "Sampson", Title = "Bounty Hunter", MarketNm = "West" },
-        new EmployeeItem() { FirstName = "Rex", LastName = "Shin", Title = "Runner", MarketNm = "Interloper" },
-        new EmployeeItem() { FirstName = "Zach", LastName = "Smith", Title = "Guard", MarketNm = "Security" }
+        new EmployeeItem() { FirstName = "Emily", LastName = "Sampson", Title = "Bounty Hunter", MarketNm = "West", PhoneNbr = "555-555-5555", Email = "test@gmail.com" },
+        new EmployeeItem() { FirstName = "Rex", LastName = "Shin", Title = "Runner", MarketNm = "Interloper", PhoneNbr = "555-123-4567", Email = "nobody@gmail.com" },
+        new EmployeeItem() { FirstName = "Zach", LastName = "Smith", Title = "Guard", MarketNm = "Security", PhoneNbr = "555-645-7809", Email = "fake@school.edu" }
     };
       sList.Heading = "S";
 
       var dList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Jane", LastName = "Doe", Title = "Crusader", MarketNm = "Operations" }
+        new EmployeeItem() { FirstName = "Jane", LastName = "Doe", Title = "Crusader", MarketNm = "Operations", PhoneNbr = "555-000-9999", Email = "own@usa.gov" }
     };
       dList.Heading = "D";
 
       var jList = new PersonList()
     {
-        new EmployeeItem() { FirstName = "Shoeless", LastName = "Jackson", Title = "Public Relations", MarketNm = "Marketing" }
+        new EmployeeItem() { FirstName = "Shoeless", LastName = "Jackson", Title = "Public Relations", MarketNm = "Marketing", PhoneNbr = "555-111-9876", Email = "poop@microsoft.com" }
     };
       jList.Heading = "J";
 

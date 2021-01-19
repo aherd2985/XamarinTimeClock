@@ -1,14 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TimeClock.Views.EmployeeContactPage" Title="{Binding DisplayName}">
+             x:Class="TimeClock.Views.EmployeeContactPage" Title="{Binding DisplayName}">  
+  <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
     <StackLayout Margin="20" VerticalOptions="StartAndExpand">
-        <Label Text="First Name" />
-        <Entry Text="{Binding FirstName}" />
-
-					<Button Margin="0,40,0,0" Text="Call" Command="{Binding OpenWebCommand}" x:Name="callBtn"
-                    BackgroundColor="#007fdf" TextColor="White" Clicked="PhoneDialerClicked" />
-
-					<Button Margin="0,30,0,0" Text="Email" Command="{Binding OpenWebCommand}" x:Name="emailBtn"
-                    BackgroundColor="#007fdf" TextColor="White" Clicked="EmailerClicked" />
+        <Label Text="First Name" TextColor="White" />
+        <Label Text="{Binding FirstName}" TextColor="#CCFFFF" />
+        <Label Text="Last Name" TextColor="White" />
+        <Label Text="{Binding LastName}" TextColor="#CCFFFF" />
+        <Label Text="Market" TextColor="White" />
+        <Label Text="{Binding MarketNm}" TextColor="#CCFFFF" />
+        <Label Text="First Name" TextColor="White" />
+        <Label Text="{Binding Title}" TextColor="#CCFFFF" />
+        <Label Text="First Name" TextColor="White" />
+        <Label Text="{Binding PhoneNbr}" TextColor="#CCFFFF" />
+        <Label Text="First Name" TextColor="White" />
+        <Label Text="{Binding Email}" TextColor="#CCFFFF" />
+		<Button Margin="0,40,0,0" Text="Call" Command="{Binding OpenWebCommand}" x:Name="callBtn"
+            BackgroundColor="#007fdf" TextColor="White" Clicked="PhoneDialerClicked" />
+		<Button Margin="0,30,0,0" Text="Email" Command="{Binding OpenWebCommand}" x:Name="emailBtn"
+            BackgroundColor="#007fdf" TextColor="White" Clicked="EmailerClicked" />
     </StackLayout>
+  </ScrollView>
 </ContentPage>
