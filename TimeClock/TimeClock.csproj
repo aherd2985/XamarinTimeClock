@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\FontAwesome6Solid.otf" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -31,6 +34,10 @@
 
   <ItemGroup>
     <Folder Include="ViewModel\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\FontAwesome6Solid.otf" />
+  </ItemGroup>
 </Project>

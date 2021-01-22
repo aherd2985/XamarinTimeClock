@@ -2,6 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TimeClock.Views.SyncDataPage" Title="Sync Data">
     <ContentPage.Content>
-        <Button></Button>
+
+        
+                  <Label>
+    <Label.FormattedText>
+        <FormattedString>
+            <Span Text="&#xf021;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CC0000" />
+            <Span TextColor="#CC0000" Text="SELF DESTRUCT" FontSize="45" />
+        </FormattedString>
+    </Label.FormattedText>
+</Label>
+
+
+
+
     </ContentPage.Content>
 </ContentPage>

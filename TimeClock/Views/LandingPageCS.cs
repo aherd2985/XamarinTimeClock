@@ -54,9 +54,6 @@ namespace TimeClock.Views
     void OnPhoneImageButtonClicked(object sender, EventArgs e)
     {
       Navigation.PushAsync(new PhoneDirPage());
-
-
-      
     }
 
     void OnClockImageButtonClicked(object sender, EventArgs e)
@@ -70,10 +67,16 @@ namespace TimeClock.Views
       try
       {
 
-        Location msLocation = new Location(47.645160, -122.1306032);
+        //Location msLocation = new Location(47.645160, -122.1306032);
 
-        MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
-        Map.OpenAsync(msLocation, options);
+        //MapLaunchOptions options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
+        //Map.OpenAsync(msLocation, options);
+
+
+
+        Navigation.PushAsync(new SyncDataPage());
+
+
       }
       catch (FeatureNotSupportedException fnsEx)
       {

@@ -3,11 +3,15 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+
+[assembly: ExportFont("FontAwesome6Solid.otf", Alias = "FontAwesomeSolid")]
+
 namespace TimeClock
 {
     public partial class App : Application
     {
         static TimeClockItemDatabase database;
+
 
         public App()
         {
