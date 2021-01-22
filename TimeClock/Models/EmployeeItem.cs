@@ -14,6 +14,19 @@ namespace TimeClock.Models
     public string MarketNm { get; set; }
     public string Title { get; set; }
 
+    public bool HasEmail {
+      get
+      {
+        return !string.IsNullOrEmpty(Email);
+      }
+    }
+    public bool HasPhoneNbr
+    {
+      get
+      {
+        return !string.IsNullOrEmpty(PhoneNbr);
+      }
+    }
 
     public string DisplayName
     {

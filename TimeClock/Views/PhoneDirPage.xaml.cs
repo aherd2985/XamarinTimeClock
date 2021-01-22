@@ -30,7 +30,7 @@ namespace TimeClock.Views
       var sList = new PersonList()
     {
         new EmployeeItem() { FirstName = "Emily", LastName = "Sampson", Title = "Bounty Hunter", MarketNm = "West", PhoneNbr = "555-555-5555", Email = "test@gmail.com" },
-        new EmployeeItem() { FirstName = "Rex", LastName = "Shin", Title = "Runner", MarketNm = "Interloper", PhoneNbr = "555-123-4567", Email = "nobody@gmail.com" },
+        new EmployeeItem() { FirstName = "Rex", LastName = "Shin", Title = "Runner", MarketNm = "Interloper", PhoneNbr = "555-123-4567" },
         new EmployeeItem() { FirstName = "Zach", LastName = "Smith", Title = "Guard", MarketNm = "Security", PhoneNbr = "555-645-7809", Email = "fake@school.edu" }
     };
       sList.Heading = "S";

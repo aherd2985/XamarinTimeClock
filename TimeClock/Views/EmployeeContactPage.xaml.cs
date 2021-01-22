@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TimeClock.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -10,11 +11,24 @@ namespace TimeClock.Views
     public EmployeeContactPage()
     {
       InitializeComponent();
+
+
+      Binding newPb = new Binding("HasPhoneNbr");
+      callBtn.SetBinding(Button.IsVisibleProperty, newPb);
+
+      newPb = new Binding("HasEmail");
+      emailBtn.SetBinding(Button.IsVisibleProperty, newPb);
+
+
     }
 
     void PhoneDialerClicked(System.Object sender, System.EventArgs e)
-    {try { 
-      PhoneDialer.Open("15557432222");
+    {
+      try
+      {
+        EmployeeItem empItem = (EmployeeItem)BindingContext;
+
+        PhoneDialer.Open(empItem.PhoneNbr);
 
       }
       catch (ArgumentNullException anEx)
@@ -33,11 +47,16 @@ namespace TimeClock.Views
 
     void EmailerClicked(System.Object sender, System.EventArgs e)
     {
-      List<string> recipients = new List<string>();
-      string useremail = "test@gmail.com";
-      recipients.Add(useremail);
+
       try
       {
+        List<string> recipients = new List<string>();
+        EmployeeItem empItem = (EmployeeItem)BindingContext;
+
+
+        recipients.Add(empItem.Email);
+
+
         var message = new EmailMessage
         {
           //Subject = subject,
@@ -47,11 +66,15 @@ namespace TimeClock.Views
           //Bcc = bccRecipients
         };
         Email.ComposeAsync(message);
+
       }
       catch (Exception ex)
       {
         //Debug.WriteLine("Exception:>>" + ex);
       }
     }
+
+
+
   }
 }
