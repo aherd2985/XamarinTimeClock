@@ -1,20 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TimeClock.Views.SyncDataPage" Title="Sync Data">
+
+
+
     <ContentPage.Content>
 
         
-                  <Label>
-    <Label.FormattedText>
-        <FormattedString>
-            <Span Text="&#xf021;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CC0000" />
-            <Span TextColor="#CC0000" Text="SELF DESTRUCT" FontSize="45" />
-        </FormattedString>
-    </Label.FormattedText>
-</Label>
+        <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="20" Padding="15">
+
+
+      <Label>
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="&#xf021;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                <Span TextColor="#CCFF00" Text="Sync Data" FontSize="45" />
+            </FormattedString>
+        </Label.FormattedText>
+      </Label>
 
 
 
-
+        
+		<Button Margin="0,40,0,0" Text="Sync" Command="{Binding OpenWebCommand}" x:Name="syncBtn"
+            BackgroundColor="#FF00FF" TextColor="White" Clicked="SyncClicked" />
+                    
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+
+
 </ContentPage>

@@ -129,6 +129,7 @@
     <BundleResource Include="Resources\InIcon%402x.png" />
     <BundleResource Include="Resources\OutIcon.png" />
     <BundleResource Include="Resources\OutIcon2x.png" />
+    <BundleResource Include="Resources\sync.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
