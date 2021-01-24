@@ -72,7 +72,7 @@ namespace TimeClock.Views
         Orientation = StackOrientation.Horizontal
           },
           new Label { Text = footerText, TextColor = Color.FromHex("#97bdfc"), VerticalTextAlignment = TextAlignment.End
-                      , Padding = new Thickness( 25, 100, 0, 20 ), VerticalOptions = LayoutOptions.EndAndExpand
+                      , Padding = new Thickness( 25, 10, 0, 20 ), VerticalOptions = LayoutOptions.EndAndExpand
                     }
         },
         VerticalOptions = LayoutOptions.FillAndExpand
@@ -109,18 +109,22 @@ namespace TimeClock.Views
       catch (FeatureNotSupportedException fnsEx)
       {
         // Handle not supported on device exception
+        DisplayAlert("Error", fnsEx.InnerException.ToString(), "OK");
       }
       catch (FeatureNotEnabledException fneEx)
       {
         // Handle not enabled on device exception
+        DisplayAlert("Error", fneEx.InnerException.ToString(), "OK");
       }
       catch (PermissionException pEx)
       {
         // Handle permission exception
+        DisplayAlert("Error", pEx.InnerException.ToString(), "OK");
       }
       catch (Exception ex)
       {
         // Unable to get location
+        DisplayAlert("Error", ex.InnerException.ToString(), "OK");
       }
     }
   }

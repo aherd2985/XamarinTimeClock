@@ -34,14 +34,17 @@ namespace TimeClock.Views
       catch (ArgumentNullException anEx)
       {
         // Number was null or white space
+        DisplayAlert("Error", anEx.InnerException.ToString(), "OK");
       }
       catch (FeatureNotSupportedException ex)
       {
         // Phone Dialer is not supported on this device.
+        DisplayAlert("Error", ex.InnerException.ToString(), "OK");
       }
       catch (Exception ex)
       {
         // Other error has occurred.
+        DisplayAlert("Error", ex.InnerException.ToString(), "OK");
       }
     }
 
@@ -71,6 +74,7 @@ namespace TimeClock.Views
       catch (Exception ex)
       {
         //Debug.WriteLine("Exception:>>" + ex);
+        DisplayAlert("Error", ex.InnerException.ToString(), "OK");
       }
     }
 
