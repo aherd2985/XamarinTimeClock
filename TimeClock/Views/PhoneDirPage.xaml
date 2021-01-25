@@ -3,12 +3,19 @@
              x:Class="TimeClock.Views.PhoneDirPage" Title="Phone Directory">
     <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ListView x:Name="listView" ItemSelected="OnListItemSelected" 
-          HasUnevenRows="true"
+          HasUnevenRows="true" 
+            GroupDisplayBinding="{Binding Heading}"
+            GroupShortNameBinding="{Binding Heading}"
           IsGroupingEnabled="true">
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Heading}" />
+                         <StackLayout VerticalOptions="FillAndExpand"
+                       Padding="5"
+                       BackgroundColor="#3498DB">
+           <Label Text="{Binding Heading}" VerticalTextAlignment="Center" Margin="20,0,0,0" />
+          </StackLayout>
+                        
                     </ViewCell>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>

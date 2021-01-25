@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using TimeClock.Data;
 using TimeClock.Models;
 using Xamarin.Forms;
 
@@ -34,6 +37,7 @@ namespace TimeClock.Views
         new EmployeeItem() { FirstName = "Zach", LastName = "Smith", Title = "Guard", MarketNm = "Security", PhoneNbr = "555-645-7809", Email = "fake@school.edu" }
     };
       sList.Heading = "S";
+      
 
       var dList = new PersonList()
     {
@@ -55,8 +59,26 @@ namespace TimeClock.Views
         sList
     };
 
+
+
+      string messageContent = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "contactList.json");
+      // read file into a string and deserialize JSON to a type
+      string dewrp = File.ReadAllText(messageContent);
+      List<EmployeeItem> empList = new List<EmployeeItem>();// JsonConvert.DeserializeObject<List<EmployeeItem>>(File.ReadAllText(messageContent));
+
+      // deserialize JSON directly from a file
+      using (StreamReader file = File.OpenText(messageContent))
+      {
+        JsonSerializer serializer = new JsonSerializer();
+        empList = (List<EmployeeItem>)serializer.Deserialize(file, typeof(List<EmployeeItem>));
+      }
+
+
+      SadDataBuild sadData = new SadDataBuild();
+
+
       //ListOfPeople = list;
-      listView.ItemsSource = list;
+      listView.ItemsSource = sadData.GetEmployeeContactList(empList);
       //listView.ItemsSource = await App.Database.GetItemsAsync();
     }
 
