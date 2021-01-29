@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TimeClock.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="20" Padding="15">
+
+
+      <Label>
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="&#xf502;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                <Span TextColor="#CCFF00" Text="Please login" FontSize="45" />
+            </FormattedString>
+        </Label.FormattedText>
+      </Label>
+        <Button Margin="0,40,0,0" Text="Login" Command="{Binding OpenWebCommand}" x:Name="loginBtn"
+            BackgroundColor="#007fdf" TextColor="White" Clicked="loginBtn_Clicked" />
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

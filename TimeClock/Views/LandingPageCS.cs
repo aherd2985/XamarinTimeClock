@@ -13,6 +13,7 @@ namespace TimeClock.Views
     {
       Title = "Home";
       this.BackgroundColor = Color.FromHex("#161616");
+      NavigationPage.SetHasBackButton(this, false);
 
       ImageButton clockImageButton = new ImageButton
       {
