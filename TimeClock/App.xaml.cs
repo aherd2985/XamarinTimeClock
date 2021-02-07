@@ -1,4 +1,5 @@
-﻿using TimeClock.Views;
+﻿using TimeClock.Data;
+using TimeClock.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,7 @@ namespace TimeClock
   public partial class App : Application
   {
     static TimeClockItemDatabase database;
+    static JobItemDatabase jobDatabase;
 
 
     public App()
@@ -36,6 +38,18 @@ namespace TimeClock
           database = new TimeClockItemDatabase();
         }
         return database;
+      }
+    }
+
+    public static JobItemDatabase JobDatabase
+    {
+      get
+      {
+        if (jobDatabase == null)
+        {
+          jobDatabase = new JobItemDatabase();
+        }
+        return jobDatabase;
       }
     }
 

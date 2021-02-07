@@ -60,6 +60,15 @@ namespace TimeClock.Views
       };
       wifiImageBtn.Clicked += OnWifiImageButtonClicked;
 
+      ImageButton searchImageBtn = new ImageButton
+      {
+        Source = "job.png",
+        HorizontalOptions = LayoutOptions.CenterAndExpand,
+        VerticalOptions = LayoutOptions.CenterAndExpand,
+        Margin = new Thickness(0, 20, 0, 0)
+      };
+      searchImageBtn.Clicked += OnSearchImageButtonClicked;
+
       string footerText = "© " + DateTime.Now.Year.ToString() + " Techno Herder";
 
       Content = new StackLayout
@@ -81,8 +90,14 @@ namespace TimeClock.Views
             },
         Orientation = StackOrientation.Horizontal
           },
-         
+          new StackLayout
+          {
+        Children = {
           wifiImageBtn,
+          searchImageBtn,
+            },
+        Orientation = StackOrientation.Horizontal
+          },
           new Label { Text = footerText, TextColor = Color.FromHex("#97bdfc"), VerticalTextAlignment = TextAlignment.End
                       , Padding = new Thickness( 25, 10, 0, 20 ), VerticalOptions = LayoutOptions.EndAndExpand
                     }
@@ -108,6 +123,10 @@ namespace TimeClock.Views
     void OnWifiImageButtonClicked(object sender, EventArgs e)
     {
       Navigation.PushAsync(new WifiPage());
+    }
+    void OnSearchImageButtonClicked(object sender, EventArgs e)
+    {
+      Navigation.PushAsync(new SearchPage());
     }
 
     void OnJobImageButtonClicked(object sender, EventArgs e)

@@ -297,6 +297,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\wifi.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\job.png" />
+  </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup />
   </Target>
