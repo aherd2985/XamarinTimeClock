@@ -51,6 +51,15 @@ namespace TimeClock.Views
       };
       syncImageBtn.Clicked += OnSyncImageButtonClicked;
 
+      ImageButton wifiImageBtn = new ImageButton
+      {
+        Source = "wifi.png",
+        HorizontalOptions = LayoutOptions.CenterAndExpand,
+        VerticalOptions = LayoutOptions.CenterAndExpand,
+        Margin = new Thickness(0, 20, 0, 0)
+      };
+      wifiImageBtn.Clicked += OnWifiImageButtonClicked;
+
       string footerText = "© " + DateTime.Now.Year.ToString() + " Techno Herder";
 
       Content = new StackLayout
@@ -72,6 +81,8 @@ namespace TimeClock.Views
             },
         Orientation = StackOrientation.Horizontal
           },
+         
+          wifiImageBtn,
           new Label { Text = footerText, TextColor = Color.FromHex("#97bdfc"), VerticalTextAlignment = TextAlignment.End
                       , Padding = new Thickness( 25, 10, 0, 20 ), VerticalOptions = LayoutOptions.EndAndExpand
                     }
@@ -93,6 +104,10 @@ namespace TimeClock.Views
     void OnSyncImageButtonClicked(object sender, EventArgs e)
     {
       Navigation.PushAsync(new SyncDataPage());
+    }
+    void OnWifiImageButtonClicked(object sender, EventArgs e)
+    {
+      Navigation.PushAsync(new WifiPage());
     }
 
     void OnJobImageButtonClicked(object sender, EventArgs e)

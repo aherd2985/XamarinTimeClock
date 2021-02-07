@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TimeClock.Views.WifiPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="20" Padding="15">
+                <Label x:Name="internetLbl">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf8dd;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Internet" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="wifiLbl" IsVisible="false">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf1eb;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Wifi" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="ethLbl" IsVisible="false">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf796;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Ethernet" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="cellLbl" IsVisible="false">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf095;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Cell" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="blueLbl" IsVisible="false">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf293;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Bluetooth" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label x:Name="unkLbl" IsVisible="false">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#xf128;" FontFamily="FontAwesomeSolid" FontSize="35" TextColor="#CCFF00" />
+                            <Span TextColor="#CCFF00" Text="Unknown" FontSize="45" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

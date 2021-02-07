@@ -1,4 +1,5 @@
 ﻿using TimeClock.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,48 +9,56 @@ using Xamarin.Forms.Xaml;
 
 namespace TimeClock
 {
-    public partial class App : Application
+  public partial class App : Application
+  {
+    static TimeClockItemDatabase database;
+
+
+    public App()
     {
-        static TimeClockItemDatabase database;
+      InitializeComponent();
 
+      NavigationPage nav = new NavigationPage(new LoginPage());
+      nav.BarBackgroundColor = (Color)App.Current.Resources["darkBlue"];
+      nav.BarTextColor = Color.White;
 
-        public App()
-        {
-            InitializeComponent();
+      MainPage = nav;
 
-            NavigationPage nav = new NavigationPage(new LoginPage());
-            nav.BarBackgroundColor = (Color)App.Current.Resources["darkBlue"];
-            nav.BarTextColor = Color.White;
-
-            MainPage = nav;
-        }
-
-        public static TimeClockItemDatabase Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new TimeClockItemDatabase();
-                }
-                return database;
-            }
-        }
-
-        protected override void OnStart()
-        {
-
-        }
-
-        protected override void OnSleep()
-        {
-
-        }
-
-        protected override void OnResume()
-        {
-
-        }
+      Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
     }
+
+    public static TimeClockItemDatabase Database
+    {
+      get
+      {
+        if (database == null)
+        {
+          database = new TimeClockItemDatabase();
+        }
+        return database;
+      }
+    }
+
+    protected override void OnStart()
+    {
+
+    }
+
+    protected override void OnSleep()
+    {
+
+    }
+
+    protected override void OnResume()
+    {
+
+    }
+
+    protected void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+    {
+      var access = e.NetworkAccess;
+      var profiles = e.ConnectionProfiles;
+    }
+  }
 }
 
